@@ -1,5 +1,5 @@
 import { Request, Response } from "express"; // use NextApiRequest/NextApiResponse if on Next.js
-import UserService from "../services/user/user.service";
+import UserService from "../services/user.service";
 import { sendResponse } from "../utils/sendResponse";
 
 // Define request body types
