@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import userRoutes from "./routes/user.routes";
-import { apiLimiter } from "./middleware/rateLimiter";
+import { apiLimiter } from "./middleware/limiter";
 
 dotenv.config();
 
