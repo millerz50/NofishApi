@@ -1,1 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
 
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  firstName String
+  surname   String
+  dob       DateTime
+
+  email     String   @unique
+  password  String
+
+  bio       String?
+  photos    String[]
+
+  hobbies   String[]
+  hashtags  String[]
+  education String?
+  work      String?
+
+  gender          Gender?
+  marriageStatus  MarriageStatus?
+  childStatus     ChildStatus?
+  zodiac          String?
+
+  interests   String[]
+  relationship String[]
+
+  // MongoDB GeoJSON (Prisma doesn't support full geo indexes like mongoose)
+  location   Json?
+
+  likes     String[] @db.ObjectId
+  dislikes  String[] @db.ObjectId
+  matches   String[] @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Gender {
+  Male
+  Female
+  Other
+}
+
+enum MarriageStatus {
+  Single
+  Married
+  Divorced
+  Widowed
+}
+
+enum ChildStatus {
+  None
+  HasChildren
+  Planning
+}
