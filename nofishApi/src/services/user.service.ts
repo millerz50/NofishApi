@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import User from "../models/User";
-import { IUser } from "../models/User";
+import User from "../models/user.model";
+import { IUser } from "../models/user.model";
 
 class UserService {
   // Get potential matches (Discovery)
